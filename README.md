@@ -1,0 +1,2 @@
+# Tanginamo
+Tesygumsna kana
