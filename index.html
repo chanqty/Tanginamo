@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Capstone Title Generator</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Josefin+Sans:wght@300&display=swap');
+
+    body {
+      font-family: 'Josefin Sans', Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      position: relative;
+    }
+    
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-top: 0;
+      font-family: 'Great Vibes', cursive;
+      font-size: 36px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: #45a049;
+    }
+    
+    .output-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+    
+    .output {
+      font-size: 20px;
+      font-weight: bold;
+      background-color: #f2f2f2;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    /* Dark Mode Styles */
+    body.dark-mode {
+      background-color: #333;
+      color: #fff;
+    }
+    
+    body.dark-mode .container {
+      background-color: #444;
+      color: #fff;
+    }
+    
+    body.dark-mode h1 {
+      color: #fff;
+    }
+    
+    body.dark-mode .output {
+      background-color: #555;
+      color: #fff;
+    }
+
+    /* Footer Styles */
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 18px;
+      color: #999;
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 480px) {
+      h1 {
+        font-size: 28px;
+      }
+      .button-container {
+        text-align: center;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Capstone Title Generator</h1>
+    <p style="text-align: center; font-size: 18px;">This Capstone Title Generator provides randomly generated project titles relevant to computer majors.</p>
+
+    <div class="output-container">
+      <h2>Generated Title:</h2>
+      <p class="output" id="output-title"></p>
+      <h2>Description:</h2>
+      <p class="output" id="output-description"></p>
+      <h2>Programming Languages:</h2>
+      <p class="output" id="output-languages"></p>
+      <h2>Implementation:</h2>
+      <p class="output" id="output-implementation"></p>
+    </div>
+
+    <div class="button-container">
+      <button onclick="generateTitle()">Generate Title</button>
+    </div>
+
+    <div class="button-container">
+      <button id="mode-toggle-button" onclick="toggleDarkMode()">
+        <span id="mode-icon">&#x1F31E;</span>
+      </button>
+    </div>
+  </div>
+
+  <footer style="text-align: center; font-size: 18px; color: #999; margin-top: 20px;">
+    Made by Christian Saruna
+  </footer>
+
+  <script>
+    var titles = [
+      {
+        title: "A Comparative Analysis of Algorithms for Efficient Data Compression in Cloud Storage Systems",
+        description: "This capstone research aims to compare and analyze different algorithms used for data compression in cloud storage systems, with a focus on efficiency.",
+        languages: ["Python", "Java"],
+        implementation: "The implementation involves implementing and evaluating various data compression algorithms, conducting performance benchmarks, and analyzing the results.",
+      },
+      {
+        title: "Developing a Secure Blockchain-Based Supply Chain Management System for Ensuring Product Authenticity",
+        description: "This capstone research focuses on designing and developing a blockchain-powered supply chain management system to ensure the authenticity of products and prevent counterfeiting.",
+        languages: ["Solidity", "JavaScript"],
+        implementation: "The implementation includes developing smart contracts, building a decentralized application, and testing the system.",
+      },
+      {
+        title: "Investigating the Use of Artificial Intelligence for Predictive Maintenance in Manufacturing Industries",
+        description: "This capstone research investigates the application of artificial intelligence techniques, such as machine learning and predictive analytics, for implementing predictive maintenance strategies in manufacturing industries.",
+        languages: ["Python"],
+        implementation: "The implementation involves collecting real-time sensor data, developing machine learning models, training and validating the models, and evaluating the effectiveness of predictive maintenance.",
+      },
+      // Add more specific and professional capstone research titles with descriptions, programming languages, and implementations as needed
+    ];
+
+    function generateTitle() {
+      var randomNumber = Math.floor(Math.random() * titles.length);
+      var generatedTitle = titles[randomNumber].title;
+      var generatedDescription = titles[randomNumber].description;
+      var generatedLanguages = titles[randomNumber].languages;
+      var generatedImplementation = titles[randomNumber].implementation;
+      document.getElementById("output-title").textContent = generatedTitle;
+      document.getElementById("output-description").textContent = generatedDescription;
+      document.getElementById("output-languages").textContent = generatedLanguages.join(", ");
+      document.getElementById("output-implementation").textContent = generatedImplementation;
+    }
+
+    // Function to toggle dark mode
+    function toggleDarkMode() {
+      var body = document.body;
+      body.classList.toggle("dark-mode");
+
+      var modeIcon = document.getElementById("mode-icon");
+      if (body.classList.contains("dark-mode")) {
+        modeIcon.textContent = "\u{1F319}"; // Moon symbol
+      } else {
+        modeIcon.textContent = "\u{1F31E}"; // Sun symbol
+      }
+    }
+  </script>
+</body>
+</html>
